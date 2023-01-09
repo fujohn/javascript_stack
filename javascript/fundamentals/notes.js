@@ -163,3 +163,38 @@ class Deck {
         return face + " of " + suit;
     }
 }
+
+//////////////////////////// Ternary Operator ////////////////////////////
+console.log('//////////////////////////// Ternary Operator ////////////////////////////');
+
+// Essentially, a ternary operator is a short version of an if statement. 
+// basic
+let canAfford = (itemPrice, accountBalance) => {
+    if (itemPrice > accountBalance) {
+        return `Cannot afford! You are $${itemPrice - accountBalance} short`;
+    } else {
+        return 'Can afford!';
+    }
+};
+
+// Ternary (? is true, : is false)
+let canAffordNew = (itemPrice, accountBalance) => {
+    return itemPrice> accountBalance
+    ? `Cannot afford! You are $${itemPrice - accountBalance} short`
+    : 'Can afford!'
+};
+
+let myBankAccountBalance = 1000;
+const drone = 1001;
+
+let droneOnSale = drone - drone * 0.03; // follows math order of ops
+
+console.log('before discount:', canAffordNew(drone, myBankAccountBalance));
+console.log('after discount:', canAffordNew(droneOnSale, myBankAccountBalance));
+
+// nested ternary condition statement
+const myVar = 10 < 20
+    ? 5 < 10
+        ? true
+        : false
+    : false
