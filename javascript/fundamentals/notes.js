@@ -28,3 +28,62 @@ function printNames(names) {
 }
 printNames(beatles);                     
 
+//////////////////////////// Desctructuring ////////////////////////////
+console.log('Desctructuring');
+
+const person = { 
+    firstName: 'Bob', 
+    lastName: 'Marley', 
+    email: 'bob@marley.com', 
+    password: 'sekureP@ssw0rd9', 
+    username: 'barley', 
+    createdAt: 1543945177623
+};
+const animals = ['horse', 'dog', 'fish', 'cat', 'bird'];
+
+// BEFORE ES6
+// var email = person.email;
+// var firstAnimal = animals[0];
+// AFTER ES6
+// const { email } = person;
+// const [firstAnimal] = animals;
+// console.log(email);  // => bob@marley.com
+// console.log(firstAnimal); // => horse
+
+const { email, password } = person;
+const [firstAnimal, secondAnimal, thirdAnimal] = animals;
+console.log(email);  // => bob@marley.com
+console.log(thirdAnimal); // => horse
+
+const { password: hashedPassword } = person;
+console.log(hashedPassword); // => horse
+
+// Nested Destructuring
+const person1 = {
+    firstName: 'Bob',
+    lastName: 'Marley',
+    email: 'bob@marley.com',
+    password: 'sekureP@ssw0rd9',
+    username: 'barley',
+    addresses: [
+        {
+            address: '1600 Pennsylvania Avenue',
+            city: 'Washington, D.C.',
+            zipcode: '20500',
+        },
+        {
+            address: '221B Baker St.',
+            city: 'London',
+            zipcode: 'WC2N 5DU',
+        }
+    ],
+    createdAt: 1543945177623
+};
+
+const { addresses: [whiteHouse, sherlock] } = person1;
+console.log(sherlock);
+const { addresses: [ , { city: london }] } = person1; // leaving a position empty can skip the destructure
+console.log(london);  // => London
+
+
+
