@@ -1,6 +1,6 @@
 
 //////////////////////////// Debugging ////////////////////////////
-console.log('Debugging');
+console.log('//////////////////////////// Debugging ////////////////////////////');
 
 let x = 1;
 let y = 2;
@@ -10,7 +10,7 @@ console.log(x + x);
 // console.log(z * x);
 
 //////////////////////////// Scope ////////////////////////////
-console.log('Scope');
+console.log('//////////////////////////// Scope ////////////////////////////');
 
 // below have a total of 3 scope
 // const are forever and must assign, let allows change and does not need to be assigned right away, try to avoid using var
@@ -29,7 +29,7 @@ function printNames(names) {
 printNames(beatles);                     
 
 //////////////////////////// Desctructuring ////////////////////////////
-console.log('Desctructuring');
+console.log('//////////////////////////// Desctructuring ////////////////////////////');
 
 const person = { 
     firstName: 'Bob', 
@@ -86,4 +86,80 @@ const { addresses: [ , { city: london }] } = person1; // leaving a position empt
 console.log(london);  // => London
 
 
+//////////////////////////// Rest/Spread ////////////////////////////
+console.log('//////////////////////////// Rest/Spread ////////////////////////////');
 
+const [firstAni, secondAni, ...otherAnimals] = animals;
+console.log(firstAni);
+console.log(secondAni);
+console.log(otherAnimals); // => ['fish', 'cat', 'bird']
+
+const { firstName, lastName, ...attributes } = person1;
+console.log(attributes);
+
+const personCopy = { ...person1 };
+console.log(personCopy);
+console.log(personCopy === person1); // => false
+console.log(personCopy.addresses === person1.addresses); // => true
+
+//////////////////////////// Arrow Functions ////////////////////////////
+console.log('//////////////////////////// Arrow Functions ////////////////////////////');
+
+// var sayHello = function(name) {
+//     console.log('Hello ' + name);
+// }; 
+
+// same as above
+// name does not necessarily need () if it is the only parameter
+// {} also not necessary if function is simple
+const sayHello = (name) => {
+    console.log(`Hello ${name}`);
+};
+
+// var square = function(n) {
+//     return n * n;
+// };
+// same as above
+const square = n => n * n;
+
+// longhand notation to return an object
+// NOTE: first set of brackets are defining the function body
+// and the second set of brackets are to create the object literal
+const returnObjLonghand = () => {
+    return { 
+        firstName: 'John',
+        lastName: 'Wick'
+    }
+}
+/**
+  * The example below wouldn't work because the 
+  * brackets are interpreted as opening the body of the 
+  * function rather than brackets to create an object literal 
+  */
+// const returnObj = () => { firstName: 'John', lastName: 'Wick' }
+
+// surrounding the implicit return with parentheses solves the problem
+const returnObjFixed = () => ({ firstName: 'John', lastName: 'Wick' });
+
+
+class Deck {
+    constructor() {
+        const suits = ['Diamond', 'Heart', 'Spade', 'Club'];
+        const faces = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
+        const deck = [];
+        // for (const suit of suits) {
+        //     for (const face of faces) {
+        //         deck.push(this.createCard(suit, face));
+        //     }
+        // }
+        suits.forEach(suit => {
+            faces.forEach(face => {
+                deck.push(this.createCard(suit, face));
+            });
+        });
+        this.deck = deck;
+    }
+    createCard(suit, face) {
+        return face + " of " + suit;
+    }
+}
