@@ -2,6 +2,7 @@ import './App.css';
 import Person from './components/Person'
 import Header from './components/Header'
 import Hooks from './components/Hooks'
+import UserForm from './components/UserForm';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header firstName={ "Bill" } lastName={ "Justice" } />
       <button onClick={ ()=> alert("This button has been clicked!") }>Click Me</button>
       <Hooks />
+      <UserForm />
     </div>
   );
 }
