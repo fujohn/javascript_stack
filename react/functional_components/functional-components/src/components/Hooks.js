@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+// import './styles.css';
+import styles from './MyButtonComponent.module.css';
+
     
 const Counter = props => {
     const [state, setState] = useState({ // can pass dict for multiple, or primitive for singular, either way, destructors are setters and getters respectively
@@ -52,13 +55,22 @@ const Counter = props => {
     // setState3({ greeting: state3.greeting + "Neo" });
     // console.log(state3.greeting); //Knock knock, Neo
     
-    
+    const btnStyle = {
+        padding: '12px 15px',
+        fontFamily: 'Arial, sans-serif',
+        fontWeight: 'bold',
+        background: 'linear-gradient(30deg, rebeccapurple, magenta)', 
+        color: '#fff',
+        border: 'none'
+    };
 
     return (
         <div>
             { state.clickCount }    
             {/* displaying the current value held in our state object */}
-            <button onClick={ handleClick }>Click Me</button>
+            {/* <button className="btn" onClick={ handleClick }>Click Me</button> */}
+            {/* <button style={ btnStyle} onClick={ handleClick }>Click Me</button> */}
+            <button className={styles.btn}>Click Me</button>
         </div>
     );
 }
