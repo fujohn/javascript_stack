@@ -7,6 +7,7 @@ import UserForm from './components/UserForm';
 import Groceries from './components/Groceries';
 import MessageForm from './components/MessageForm';
 import MessageDisplay from './components/MessageDisplay';
+import MyComponent from './components/MyComponent';
 
 import React, { useState } from 'react';
 
@@ -39,6 +40,10 @@ function App() {
       <h2>Lifting State</h2>
       <MessageForm onNewMessage={ youveGotMail }/>
       <MessageDisplay message={ currentMsg } />
+      <h2>Callbacks</h2>
+      <MyComponent movies={['Saving Private Ryan', 'Ted', 'Get Hard']} />
+
+
     </div>
   );
 }
