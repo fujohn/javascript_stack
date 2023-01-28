@@ -15,4 +15,23 @@ const noMondays = new Promise( (resolve, reject) => {
 });
 noMondays
     .then( res => console.log(res) ) // resolved case
-    .catch( err => console.log(err) ); // rejected case 
+    .catch( err => console.log(err) ); // rejected case '
+
+///////////////////// Consuming APIs /////////////////////
+fetch("http://www.example.com")
+    .then(response =>{
+        //do something
+    }).catch(err => {
+        console.log(err);
+    })
+
+// ES7
+let response = await fetch("http://www.example.com");
+
+
+///////////////////// Axios /////////////////////
+import axios from 'axios';
+
+axios.get('http://www.example.com').then(response=>{
+    console.log(response);
+})
