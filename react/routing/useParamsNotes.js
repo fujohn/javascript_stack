@@ -28,7 +28,7 @@ function App() {
             <Route path="/location/:city" element={<Location />}/> 
             {/* the preceding ":" lets react know it is a variable */}
         </Routes>
-        </BrowserRouter>
+    </BrowserRouter>
     );
 }
     
