@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 
-const ProductForm = () => {
+const ProductForm = (props) => {
     //keep track of what is being typed via useState hook
-    const [title, setTitle] = useState(""); 
+    const {products, setProducts} = props;
+    const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
 
@@ -12,7 +13,7 @@ const ProductForm = () => {
         //prevent default behavior of the submit
         e.preventDefault();
         //make a post request to create a new product
-        axios.post('http://localhost:8000/api/product', {
+        axios.post('http://localhost:8000/api/products', {
             title,    // this is shortcut syntax for firstName: firstName,
             price,
             description      // this is shortcut syntax for lastName: lastName
@@ -20,6 +21,7 @@ const ProductForm = () => {
             .then(res=>{
                 console.log(res); // always console log to get used to tracking your data!
                 console.log(res.data);
+                setProducts([...products, res.data]);
             })
             .catch(err=>console.log(err))
     }
