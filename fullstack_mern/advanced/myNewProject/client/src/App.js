@@ -9,6 +9,7 @@ const App = () => {
     
     return(
 	<div>
+        <h1>Favorite Authors</h1>
         <BrowserRouter>
             <Routes>
                 <Route element={<Main/>} path="/people/" default /> {/* adding the default makes this the default path} */}
